@@ -8,6 +8,7 @@ cone_color = [200, 17, 29]
 
 
 # Helper method to find hsv color range close to given rgb value
+# Method is courtesy of Computer vision engineer
 def get_color_limits(color):
     np_color = np.uint8([[color]])
     hsc_c = cv2.cvtColor(np_color, cv2.COLOR_RGB2HSV)
@@ -71,4 +72,12 @@ plt.plot([0, img_w], right_line_y, color='red')
 plt.subplot(1, 1, 1)
 # Displays image
 plt.imshow(img_rgb)
+# Formats image to export
+plt.axis('off')
+plt.tight_layout()
+fig = plt.gcf()
+fig.set_size_inches(18.7, 24.9)
+# Exports image to answer.png
+fig.savefig('answer.png', dpi=97, bbox_inches="tight")
 plt.show()
+plt.close()
